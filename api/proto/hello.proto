@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package hello;
+
+service Greeting {
+    rpc GreetingServer(Name) returns (Message) {
+       option (google.api.http) = {
+          post : "/name"
+          body : "*"
+    };
+    }
+}
+
+message Name {
+    string name = 1;
+}
+
+message Message {
+    string message = 1;
+}
